@@ -6,4 +6,12 @@
 
 O desafio proposto era melhorar o projeto e fazer uma página que mostrasse mais detalhes sobre os pokemons.
 
-<video src="https://youtu.be/vefN18s4TUo" width=180/>
+<video src="https://user-images.githubusercontent.com/72208322/199595856-b3101eba-7c15-4b1a-9a41-6b1dcce210f8.mp4" width=180/>
+
+
+
+
+
+
+
+
