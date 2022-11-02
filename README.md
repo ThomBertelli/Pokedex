@@ -6,4 +6,4 @@
 
 O desafio proposto era melhorar o projeto e fazer uma página que mostrasse mais detalhes sobre os pokemons.
 
-<video src="podedex-demo.mp4" width=180/>
+<video src="https://youtu.be/vefN18s4TUo" width=180/>
