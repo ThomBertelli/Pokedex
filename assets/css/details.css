@@ -13,7 +13,7 @@ position:fixed;
 top:140px;
 z-index: 10;
 border-radius: 5%;
-border: solid 8px #C9AE5D;
+border: solid 8px rgba(0, 0, 0, 0.281) ;
 opacity: 1;
 }
 
@@ -95,3 +95,20 @@ opacity: 1;
     border-radius: 1rem;
     justify-content: center;
 }
+
+@keyframes shine{
+    10% {
+      opacity: 1;
+      top: -30%;
+      left: -30%;
+      transition-property: left, top, opacity;
+      transition-duration: 0.7s, 0.7s, 0.15s;
+      transition-timing-function: ease;
+    }
+    100% {
+      opacity: 0;
+      top: -30%;
+      left: -30%;
+      transition-property: left, top, opacity;
+    }
+  }

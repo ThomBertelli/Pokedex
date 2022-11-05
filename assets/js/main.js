@@ -3,6 +3,7 @@ const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 const detailCardRefeerence = document.getElementById('detailCard')
 
+
 const maxRecords = 151
 const limit = 10
 let offset = 0;
@@ -10,7 +11,7 @@ let offset = 0;
 function convertPokemonToLi(pokemon) {
     return `
         
-    <li onclick="getCard(this)"  id="${pokemon.name}"class="pokemon ${pokemon.type}">
+    <li onclick="getCard(this)"  id="${pokemon.name}"class="pokemon ${pokemon.type} pokemonli">
         <a  >
             <span class="number">#${pokemon.number}</span>
             <span class="name">${pokemon.name}</span>
@@ -55,66 +56,11 @@ loadMoreButton.addEventListener('click', () => {
 function getCard(e){
 
     detailCardRefeerence.style.display = "flex"
-    getOnePokemon(e.id)
-        
+    pokeApi.getOnePokemon(e.id).then((pokemon)=>{
+        const newCard = fillCard(pokemon)
+        detailCardRefeerence.innerHTML = newCard
+    } )  
 }
-
-function convertPokeApiDetailToPokemon(pokeDetail) {
-    const pokemon = new Pokemon()
-    pokemon.number = pokeDetail.id
-    pokemon.name = pokeDetail.name
-
-    const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
-    const [type] = types
-
-    pokemon.types = types
-    pokemon.type = type
-
-    pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
-
-    const abilities = pokeDetail.abilities.map((abilitieSlot) => abilitieSlot.ability.name)
-    const [ability] = abilities
-    
-    pokemon.abilities = abilities;
-    pokemon.ability = ability
-    
-    pokemon.weight = pokeDetail.weight;
-    pokemon.height = pokeDetail.height;
-        
-    return pokemon
-}
-
-
-function getOnePokemon (name){
-    const url =  `https://pokeapi.co/api/v2/pokemon/${name}`
-
-    return fetch(url)
-        .then (
-            response => {
-
-                response.json().then(
-
-                    data => {
-
-                        pokemonDetail = (convertPokeApiDetailToPokemon(data))
-
-                        pokemonHtml = fillCard(pokemonDetail)
-                        console.log(pokemonHtml)
-                        console.log(detailCardRefeerence)
-                        detailCardRefeerence.innerHTML = pokemonHtml
-                    }
-
-                )
-
-
-            }
-
-
-
-        )
-        
-
-}   
 
 function fillCard(pokemon){
     return `   
@@ -123,11 +69,8 @@ function fillCard(pokemon){
     <div>
         <span class="card-number">#${pokemon.number}</span>
         <span class="card-name">${pokemon.name}</span>
-    </div>
-    
-    
-    
-
+    </div> 
+       
     <div>
         <img class="img-card" src="${pokemon.photo}"
         alt="${pokemon.name}">
@@ -159,3 +102,5 @@ function showHide() {
         detailCardRefeerence.style.display = "none";
     }
   }
+
+
