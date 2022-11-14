@@ -34,12 +34,7 @@ pokeApi.getPokemonDetail = (pokemon) => {
 }
 
 pokeApi.getPokemons = (offset = 0, limit = 5 ) => {
-    if(window.innerWidth >= 768 && window.innerWidth < 1024){
-        limit = 6
-    }if(window.innerWidth >=1024){
-        limit = 8
-    }
-    
+        
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
     return fetch(url)

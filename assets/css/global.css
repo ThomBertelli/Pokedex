@@ -42,6 +42,21 @@ li{
     
 }
 
+footer{
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    font-size: 10px;
+}
+
+
+footer a{
+    text-decoration: none;
+    color: #FFFFFF;
+    
+    
+}
+
 @media screen and (min-width: 992px) {
     .content {
         max-width: 992px;
