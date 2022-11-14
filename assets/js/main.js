@@ -5,8 +5,14 @@ const detailCardRefeerence = document.getElementById('detailCard')
 
 
 const maxRecords = 151
-const limit = 10
+const limit = 10;
 let offset = 0;
+
+if(window.innerWidth >= 768 && window.innerWidth < 1024){
+    limit = 9
+}if(window.innerWidth >=1024){
+    limit = 12
+}
 
 function convertPokemonToLi(pokemon) {
     return `
